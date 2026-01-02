@@ -20,7 +20,6 @@ export default function MobileOptimizedImage({
   className = '',
   priority = false,
 }: MobileOptimizedImageProps) {
-  const [isMobile, setIsMobile] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [dimensions, setDimensions] = useState({ width, height });
   const [imageSizes, setSizes] = useState(`${width}px`);
@@ -29,7 +28,6 @@ export default function MobileOptimizedImage({
   useEffect(() => {
     const checkMobile = () => {
       const mobile = window.innerWidth <= 768;
-      setIsMobile(mobile);
       
       if (mobile) {
         const mobileWidth = Math.min(width, window.innerWidth - 32);

@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import MobileOptimizedImage from '@/components/MobileOptimizedImage';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
