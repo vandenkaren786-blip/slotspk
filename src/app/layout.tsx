@@ -144,14 +144,15 @@ export default function RootLayout({
         className="antialiased bg-primary text-white min-h-screen flex flex-col"
         style={{
           backgroundImage: "radial-gradient(circle at 10% 20%, rgba(10, 16, 41, 0.4) 0%, rgba(6, 9, 31, 0.01) 90%)",
-          backgroundAttachment: "fixed"
+          backgroundAttachment: "fixed",
+          minHeight: "100vh"
         }}
         suppressHydrationWarning
       >
-        <div className="stars-bg fixed inset-0 z-0 opacity-20"></div>
+        <div className="stars-bg fixed inset-0 z-0 opacity-20" style={{ willChange: "auto" }}></div>
         <DeferredStyles />
         <Header />
-        <main className="flex-grow relative z-10">
+        <main className="flex-grow relative z-10" style={{ minHeight: "60vh" }}>
         {children}
         </main>
         <Footer />

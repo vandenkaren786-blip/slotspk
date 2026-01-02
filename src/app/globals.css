@@ -8,6 +8,11 @@
   --background-end-rgb: 2, 6, 23;
 }
 
+/* Prevent layout shift with font loading */
+* {
+  font-display: optional;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -16,6 +21,23 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+/* Prevent CLS with image containers */
+img {
+  content-visibility: auto;
+}
+
+/* Reserve space for images to prevent layout shift */
+.image-container {
+  position: relative;
+  width: 100%;
+}
+
+.image-container::before {
+  content: '';
+  display: block;
+  padding-top: calc(var(--aspect-ratio, 100%));
 }
 
 .download-btn {
@@ -57,4 +79,21 @@ body {
 .stat-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Prevent layout shift by ensuring content takes up space */
+.stars-bg {
+  pointer-events: none;
+  contain: strict;
+}
+
+/* Hardware acceleration for animations */
+.hardware-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Prevent cumulative layout shift */
+main {
+  contain: layout style;
 } 

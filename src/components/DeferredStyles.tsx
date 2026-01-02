@@ -4,19 +4,23 @@ import { useEffect } from 'react';
 
 export default function DeferredStyles() {
   useEffect(() => {
-    // This creates a link element for the CSS and loads it after the initial render
-    const linkEl = document.createElement('link');
-    linkEl.rel = 'stylesheet';
-    linkEl.href = '/css/deferred.css'; // Path to public directory
-    linkEl.type = 'text/css'; // Explicitly set the MIME type
-    linkEl.media = 'all';
-    
-    // Add it to the document
-    document.head.appendChild(linkEl);
+    // Delay loading to prevent CLS
+    const timer = setTimeout(() => {
+      const linkEl = document.createElement('link');
+      linkEl.rel = 'stylesheet';
+      linkEl.href = '/css/deferred.css';
+      linkEl.type = 'text/css';
+      linkEl.media = 'all';
+      // Prevent layout shift by loading after initial paint
+      linkEl.setAttribute('data-deferred', 'true');
+      
+      document.head.appendChild(linkEl);
+    }, 100); // Small delay to ensure content is painted first
     
     return () => {
-      // Clean up when component unmounts
-      if (document.head.contains(linkEl)) {
+      clearTimeout(timer);
+      const linkEl = document.querySelector('link[data-deferred="true"]');
+      if (linkEl && document.head.contains(linkEl)) {
         document.head.removeChild(linkEl);
       }
     };

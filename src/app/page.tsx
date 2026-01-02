@@ -124,12 +124,13 @@ export default function Home() {
 
           {/* Desktop Image */}
           <div className="hidden md:block md:w-1/2">
-            <div className="relative w-full max-w-[320px] aspect-square ml-auto">
+            <div className="relative w-full max-w-[320px] ml-auto" style={{ aspectRatio: '1/1' }}>
               <Image
                 src="/slots-pk.webp"
                 alt="Slots PK Logo"
-                fill
-                className="object-contain drop-shadow-2xl"
+                width={320}
+                height={320}
+                className="object-contain drop-shadow-2xl w-full h-auto"
                 priority={true}
                 fetchPriority="high"
                 quality={90}
@@ -140,12 +141,13 @@ export default function Home() {
 
           {/* Mobile Image */}
           <div className="mt-8 md:hidden">
-            <div className="relative w-full max-w-[280px] aspect-square mx-auto">
+            <div className="relative w-full max-w-[280px] mx-auto" style={{ aspectRatio: '1/1' }}>
               <Image
                 src="/slots-pk.webp"
                 alt="Slots PK Logo"
-                fill
-                className="object-contain drop-shadow-2xl"
+                width={280}
+                height={280}
+                className="object-contain drop-shadow-2xl w-full h-auto"
                 priority={true}
                 fetchPriority="high"
                 quality={90}
@@ -253,26 +255,28 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Main Game Image */}
-            <div className="w-full">
+            <div className="w-full" style={{ aspectRatio: '2/3' }}>
               <Image
                 src="/Slots-PK-game.webp"
                 alt="Slots PK Game Interface"
                 width={800}
                 height={1200}
-                className="w-full h-auto"
-                priority
+                className="w-full h-auto rounded-lg"
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
 
             {/* App Interface */}
-            <div className="w-full">
+            <div className="w-full" style={{ aspectRatio: '2/3' }}>
               <Image
                 src="/Slots-PK-APK.webp"
                 alt="Slots PK App Interface"
                 width={800}
                 height={1200}
-                className="w-full h-auto"
-                priority
+                className="w-full h-auto rounded-lg"
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </div>
@@ -460,15 +464,16 @@ export default function Home() {
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-accent">How to Deposit Money?</h2>
             <div className="md:flex items-center gap-8">
-              <div className="mb-6 md:mb-0 w-full md:w-1/2 flex justify-center">
+              <div className="mb-6 md:mb-0 w-full md:w-1/2 flex justify-center" style={{ aspectRatio: '7/8' }}>
           <Image
                   src="/Slots-PK-Withdraw-Money.webp"
                   alt="Slots PK Deposit Money"
                   width={350}
                   height={400}
-                  className="rounded-lg shadow-lg object-contain"
+                  className="rounded-lg shadow-lg object-contain w-full h-auto"
                   loading="lazy"
                   quality={80}
+                  sizes="(max-width: 768px) 100vw, 350px"
                 />
               </div>
               <div className="bg-secondary px-8 py-8 rounded-lg w-full md:w-1/2">
@@ -487,15 +492,16 @@ export default function Home() {
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-accent">How to Withdraw?</h2>
             <div className="md:flex items-center gap-8">
-              <div className="mb-6 md:mb-0 w-full md:w-1/2 flex justify-center">
+              <div className="mb-6 md:mb-0 w-full md:w-1/2 flex justify-center" style={{ aspectRatio: '7/8' }}>
           <Image
                   src="/Slots-PK-deposit-money.webp"
                   alt="Slots PK Withdraw Money"
                   width={350}
                   height={400}
-                  className="rounded-lg shadow-lg object-contain"
+                  className="rounded-lg shadow-lg object-contain w-full h-auto"
                   loading="lazy"
                   quality={80}
+                  sizes="(max-width: 768px) 100vw, 350px"
                 />
               </div>
               <div className="bg-secondary px-8 py-8 rounded-lg w-full md:w-1/2">
