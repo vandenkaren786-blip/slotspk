@@ -149,12 +149,12 @@ export default function RootLayout({
         }}
         suppressHydrationWarning
       >
-        <div className="stars-bg fixed inset-0 z-0 opacity-20" style={{ willChange: "auto" }}></div>
-        <DeferredStyles />
+        <div className="stars-bg fixed inset-0 z-0 opacity-20"></div>
         <Header />
-        <main className="flex-grow relative z-10" style={{ minHeight: "60vh" }}>
+        <main className="flex-grow relative z-10">
         {children}
         </main>
+        <DeferredStyles />
         <Footer />
         
         {/* Structured data for Organization */}

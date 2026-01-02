@@ -92,25 +92,25 @@ export default function Home() {
             </div>
 
             {/* Stats Grid with improved spacing */}
-            <div className="flex flex-row gap-4 justify-center mt-8 mb-4">
-              <div className="bg-[#0A1029] p-6 rounded-2xl text-center flex-1 max-w-[180px]">
-                <svg className="w-6 h-6 mb-3 text-[#FFA500] mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <div className="flex flex-row gap-4 justify-center mt-8 mb-4" style={{ minHeight: '120px' }}>
+              <div className="bg-[#0A1029] p-6 rounded-2xl text-center flex-1 max-w-[180px]" style={{ minHeight: '120px' }}>
+                <svg className="w-6 h-6 mb-3 text-[#FFA500] mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                   <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                 </svg>
                 <div className="text-white text-2xl font-bold mb-1">10K+</div>
                 <div className="text-gray-400 text-sm">Players</div>
               </div>
               
-              <div className="bg-[#0A1029] p-6 rounded-2xl text-center flex-1 max-w-[180px]">
-                <svg className="w-6 h-6 mb-3 text-[#FFA500] mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <div className="bg-[#0A1029] p-6 rounded-2xl text-center flex-1 max-w-[180px]" style={{ minHeight: '120px' }}>
+                <svg className="w-6 h-6 mb-3 text-[#FFA500] mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                   <path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/>
                 </svg>
                 <div className="text-white text-2xl font-bold mb-1">30+</div>
                 <div className="text-gray-400 text-sm">Games</div>
               </div>
               
-              <div className="bg-[#0A1029] p-6 rounded-2xl text-center flex-1 max-w-[180px]">
-                <svg className="w-6 h-6 mb-3 text-[#FFA500] mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <div className="bg-[#0A1029] p-6 rounded-2xl text-center flex-1 max-w-[180px]" style={{ minHeight: '120px' }}>
+                <svg className="w-6 h-6 mb-3 text-[#FFA500] mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                   <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
                 </svg>
                 <div className="text-white text-2xl font-bold mb-1">Rs100K</div>
@@ -124,34 +124,36 @@ export default function Home() {
 
           {/* Desktop Image */}
           <div className="hidden md:block md:w-1/2">
-            <div className="relative w-full max-w-[320px] ml-auto" style={{ aspectRatio: '1/1' }}>
+            <div className="relative ml-auto" style={{ width: '320px', height: '320px', maxWidth: '100%' }}>
               <Image
                 src="/slots-pk.webp"
                 alt="Slots PK Logo"
                 width={320}
                 height={320}
-                className="object-contain drop-shadow-2xl w-full h-auto"
+                className="object-contain drop-shadow-2xl"
                 priority={true}
                 fetchPriority="high"
                 quality={90}
-                sizes="(min-width: 768px) 320px, (max-width: 767px) 280px, 100vw"
+                sizes="320px"
+                style={{ width: '100%', height: '100%' }}
               />
             </div>
           </div>
 
           {/* Mobile Image */}
           <div className="mt-8 md:hidden">
-            <div className="relative w-full max-w-[280px] mx-auto" style={{ aspectRatio: '1/1' }}>
+            <div className="relative mx-auto" style={{ width: '280px', height: '280px', maxWidth: '100%' }}>
               <Image
                 src="/slots-pk.webp"
                 alt="Slots PK Logo"
                 width={280}
                 height={280}
-                className="object-contain drop-shadow-2xl w-full h-auto"
+                className="object-contain drop-shadow-2xl"
                 priority={true}
                 fetchPriority="high"
                 quality={90}
-                sizes="(min-width: 768px) 320px, (max-width: 767px) 280px, 100vw"
+                sizes="280px"
+                style={{ width: '100%', height: '100%' }}
               />
             </div>
           </div>

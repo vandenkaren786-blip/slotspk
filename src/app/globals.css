@@ -8,11 +8,6 @@
   --background-end-rgb: 2, 6, 23;
 }
 
-/* Prevent layout shift with font loading */
-* {
-  font-display: optional;
-}
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -23,21 +18,10 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-/* Prevent CLS with image containers */
+/* Prevent CLS by ensuring images don't shift layout */
 img {
-  content-visibility: auto;
-}
-
-/* Reserve space for images to prevent layout shift */
-.image-container {
-  position: relative;
-  width: 100%;
-}
-
-.image-container::before {
-  content: '';
-  display: block;
-  padding-top: calc(var(--aspect-ratio, 100%));
+  max-width: 100%;
+  height: auto;
 }
 
 .download-btn {
@@ -84,16 +68,4 @@ img {
 /* Prevent layout shift by ensuring content takes up space */
 .stars-bg {
   pointer-events: none;
-  contain: strict;
-}
-
-/* Hardware acceleration for animations */
-.hardware-accelerated {
-  transform: translateZ(0);
-  will-change: transform;
-}
-
-/* Prevent cumulative layout shift */
-main {
-  contain: layout style;
 } 
