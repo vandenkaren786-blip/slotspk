@@ -4,6 +4,11 @@ const nextConfig = {
   reactStrictMode: true,
   compress: true,
   
+  // Target modern browsers - no legacy polyfills
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  
   // Optimize images
   images: {
     remotePatterns: [
@@ -98,7 +103,17 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
     scrollRestoration: true,
-  }
+  },
+
+  // Optimize output - remove unnecessary code
+  swcMinify: true,
+  
+  // Modern module/nomodule pattern
+  modularizeImports: {
+    'react-icons': {
+      transform: 'react-icons/{{member}}',
+    },
+  },
 }
 
 module.exports = nextConfig 
